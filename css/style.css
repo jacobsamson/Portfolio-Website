@@ -14,7 +14,6 @@
 
     --clr-light:#fff;
     --clr-dark:#303030;
-    /* --clr-accent:#16e0bd; */
     --clr-accent:#747aab;
 
     --fs-h1: #3rem;
@@ -35,6 +34,10 @@
 }
 
 /* General Styles */
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -147,7 +150,7 @@ header{
     z-index: 100;
 
     transform: translateX(100%);
-    transition: translateX(100%) 250ms cubic-bezier(.5, 0, .5, 1);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
 
 .nav__list{
@@ -183,6 +186,24 @@ header{
     z-index: 1000;
 }
 
+.nav-open .nav{
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle{
+    position: fixed;
+}
+
+.nav-open .hamburger{
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translate(-6px);
+}
+.nav-open .hamburger::after{
+    opacity: 0;
+}
 /* Hamburger */
 
 .hamburger{
@@ -193,7 +214,7 @@ header{
 .hamburger,
 .hamburger::before,
 .hamburger::after{
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 2em;
     height: 3px;
     border-radius: 1em;
